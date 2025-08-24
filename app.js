@@ -15,7 +15,7 @@ function agregarAmigo() {
        inputNombreAmigo.value = ''
         actualizarLista()
         if(amigos.length > 2) {
-            document.querySelector('#sortearAmigo').setAttribute('disabled', '')
+            document.querySelector('#sortearAmigo').removeAttribute('disabled')
         }
     }
 }
@@ -23,7 +23,7 @@ function agregarAmigo() {
 function actualizarLista() {
     let i = 0
     let listaAmigos = document.querySelector('#listaAmigos')
-    listaAmigos.innerHTML('')
+    listaAmigos.innerHTML = ''
     lista = ''
     
     while(i<amigos.length) {
@@ -31,7 +31,7 @@ function actualizarLista() {
         i++
     }
     
-    listaAmigos.innerHTML(lista)
+    listaAmigos.innerHTML = lista
     return
 }
 
@@ -42,17 +42,20 @@ function sortearAmigo(nombre) {
         return
     }
     
-    resultado.innerHTML('')
+    resultado.innerHTML = ''
     document.querySelector('#agregarAmigo').setAttribute('disabled', 'disabled')
     let numeroSorteado = Math.floor(Math.random()*amigos.length)+1
-    resultado.innerHTML(`El nombre del amigo secreto es ${amigos[numeroSorteado]}`)
+    resultado.innerHTML = `El nombre del amigo secreto es ${amigos[numeroSorteado]}`
+
     return
 }
 
 function resetearJuego() {
     document.querySelector('#agregarAmigo').setAttribute('disabled', '')
-    document.querySelector('#sortearAmigo').setAttribute('disabled', 'disabled')
-    document.querySelector('#listaAmigos').innerHTML('')
+    document.querySelector('#sortearAmigo').removeAttribute('disabled')
+    document.querySelector('#listaAmigos').innerHTML = ''
+    document.querySelector('#resultado').innerHTML = ''
+    amigos = []
+
     return
 }
-
