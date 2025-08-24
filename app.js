@@ -1,8 +1,10 @@
 let amigos = []
+const botonAgregar = document.querySelector('#agregarAmigo')
+const inputNombreAmigo = document.querySelector('#amigo')
+const botonSortear = document.querySelector('#sortearAmigo')
 
 
 function agregarAmigo() {
-    let inputNombreAmigo = document.querySelector('#amigo')
     let nombreAmigo = inputNombreAmigo.value
 
     if(nombreAmigo === '') {
@@ -15,7 +17,7 @@ function agregarAmigo() {
        inputNombreAmigo.value = ''
         actualizarLista()
         if(amigos.length > 2) {
-            document.querySelector('#sortearAmigo').removeAttribute('disabled')
+            botonSortear.removeAttribute('disabled')
         }
     }
 }
@@ -43,7 +45,8 @@ function sortearAmigo(nombre) {
     }
     
     resultado.innerHTML = ''
-    document.querySelector('#agregarAmigo').setAttribute('disabled', 'disabled')
+    botonAgregar.setAttribute('disabled', 'disabled')
+    botonAgregar.setAttribute('class', 'button-add')
     let numeroSorteado = Math.floor(Math.random()*amigos.length)+1
     resultado.innerHTML = `El nombre del amigo secreto es ${amigos[numeroSorteado]}`
 
@@ -51,10 +54,13 @@ function sortearAmigo(nombre) {
 }
 
 function resetearJuego() {
-    document.querySelector('#agregarAmigo').setAttribute('disabled', '')
-    document.querySelector('#sortearAmigo').removeAttribute('disabled')
+    botonAgregar.removeAttribute('disabled')
+    botonAgregar.setAttribute('class', 'button-add')
+    botonSortear.removeAttribute('disabled')
+    botonSortear.setAttribute('class', 'button-draw')
     document.querySelector('#listaAmigos').innerHTML = ''
     document.querySelector('#resultado').innerHTML = ''
+
     amigos = []
 
     return
