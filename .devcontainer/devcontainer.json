@@ -1,0 +1,13 @@
+{
+  "name": "Codespace with Live Server",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ritwickdey.liveserver",
+        "ms-vscode.live-server",
+        "ms-vscode.vscode-html",
+        "ms-vscode.live-preview"
+      ]
+    }
+  }
+}
