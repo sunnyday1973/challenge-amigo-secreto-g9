@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <title>Amigo Secreto</title>
+    <script src="app.js" defer></script>
 </head>
 
 <body>
@@ -28,16 +29,19 @@
             <ul id="resultado" class="result-list" aria-live="polite"></ul>
 
             <div class="button-container">
-                <button id="sortearAmigo" class="button-draw" onclick="sortearAmigo()" aria-label="Sortear amigo secreto">
+                <button id="sortearAmigo" disabled="disabled" class="button-draw" onclick="sortearAmigo()" aria-label="Sortear amigo secreto">
                     <img src="assets/play_circle_outline.png" alt="Ícono para sortear">
                     Sortear amigo
+                </button>
+                <button id="reiniciar" class="button-draw" onclick="resetearJuego()" aria-label="Reinciar">
+                    <img src="assets/play_circle_outline.png" alt="Ícono para recetear">
+                    Reinciar juego
                 </button>
             </div>
         </section>
     </main>
-
-    <script src="app.js" defer></script>
 </body>
 </html>
+
 
 
