@@ -10,10 +10,10 @@ function agregarAmigo() {
     if(nombreAmigo === '') {
         alert('Por favor, inserte un nombre.')
         return 
-    }else if(amigos.includes(nombreAmigo.toLocaleUpperCase)) {
+    }else if(amigos.includes(nombreAmigo.toLocaleUpperCase())) {
         alert(`Nombre ${nombreAmigo} ya esta en la lista. Ingrese otro nombre.`)
     } else {
-       amigos.push(String(nombreAmigo).toLocaleUpperCase)   
+       amigos.push(String(nombreAmigo).toLocaleUpperCase())   
        inputNombreAmigo.value = ''
         actualizarLista()
         if(amigos.length > 2) {
@@ -23,14 +23,12 @@ function agregarAmigo() {
 }
 
 function actualizarLista() {
-    let i = 0
     let listaAmigos = document.querySelector('#listaAmigos')
     listaAmigos.innerHTML = ''
     lista = ''
     
-    while(i<amigos.length) {
-        lista += `<li>${amigos[i]}</li>`
-        i++
+    for (let i = 0; i < amigos.length; i++) {
+        lista += `<li>${amigos[i]}`;
     }
     
     listaAmigos.innerHTML = lista
@@ -44,15 +42,22 @@ function sortearAmigo(nombre) {
         return
     }
     
-    resultado.innerHTML = ''
+    //resultado.innerHTML = ''
     botonAgregar.setAttribute('disabled', 'disabled')
     botonAgregar.setAttribute('class', 'button-add')
     let numeroSorteado = Math.floor(Math.random()*amigos.length)+1
-    resultado.innerHTML = `El nombre del amigo secreto es ${amigos[numeroSorteado]}`
-
+    resultado.innerHTML += `El nombre del amigo secreto es ${amigos[numeroSorteado]}<br/>`
+    eliminarAmigo(numeroSorteado)
     return
 }
 
+function eliminarAmigo(indice) {
+    amigos.splice(indice, 1); // Elimina 1 elemento en la posición 'indice'
+    actualizarLista(); // Actualiza la lista en el HTML
+    if (amigos.length < 3) {
+        document.querySelector('#sortearAmigo').setAttribute('disabled', 'disabled');
+    }
+}
 function resetearJuego() {
     botonAgregar.removeAttribute('disabled')
     botonAgregar.setAttribute('class', 'button-add')
