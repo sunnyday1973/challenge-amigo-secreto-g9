@@ -5,15 +5,15 @@ const botonSortear = document.querySelector('#sortearAmigo')
 
 
 function agregarAmigo() {
-    let nombreAmigo = inputNombreAmigo.value
+    let nombreAmigo = inputNombreAmigo.value.trim()
 
     if(nombreAmigo === '') {
         alert('Por favor, inserte un nombre.')
         return 
-    }else if(amigos.includes(nombreAmigo)) {
+    }else if(amigos.includes(nombreAmigo.toLocaleUpperCase)) {
         alert(`Nombre ${nombreAmigo} ya esta en la lista. Ingrese otro nombre.`)
     } else {
-       amigos.push(nombreAmigo)   
+       amigos.push(String(nombreAmigo).toLocaleUpperCase)   
        inputNombreAmigo.value = ''
         actualizarLista()
         if(amigos.length > 2) {
