@@ -46,9 +46,12 @@ function actualizarLista(idLista, listaAmigos) {
 function sortearAmigo() {
     resultado = document.querySelector('#resultado')
 
-    if(amigos.length <= 2) {
+    if(amigos.length == 0) {
+        alert('Debe ingresar a lo menos 2 integrantes, para empezar el sorteo.')
+    }
+    if(amigos.length < 2) {
         console.log('2 o menos integrantes')
-        alert('Lista solo tiene 2 integrantes. Agregue mas personas, para el sorteo.')
+        alert('Lista solo tiene 1 integrante. Agregue mas personas, para el sorteo.')
         return false
     }
     
