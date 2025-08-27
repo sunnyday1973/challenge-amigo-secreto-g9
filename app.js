@@ -54,7 +54,7 @@ function sortearAmigo() {
     
     botonAgregar.setAttribute('disabled', 'disabled')
     botonAgregar.setAttribute('class', 'button-add')
-    let numeroSorteado = Math.floor(Math.random()*amigos.length)+1
+    let numeroSorteado = Math.floor(Math.random()*amigos.length)
     resultado.innerHTML += `El nombre del amigo secreto es ${amigos[numeroSorteado]}<br/>`
     amigosSorteados.push(numeroSorteado)
     
