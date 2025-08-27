@@ -48,6 +48,7 @@ function sortearAmigo() {
 
     if(amigos.length == 0) {
         alert('Debe ingresar a lo menos 2 integrantes, para empezar el sorteo.')
+        return false
     }
     if(amigos.length < 2) {
         console.log('2 o menos integrantes')
