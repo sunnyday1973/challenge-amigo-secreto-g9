@@ -1,4 +1,5 @@
 let amigos = []
+let amigosSorteados = []
 const botonAgregar = document.querySelector('#agregarAmigo')
 const inputNombreAmigo = document.querySelector('#amigo')
 const botonSortear = document.querySelector('#sortearAmigo')
@@ -15,49 +16,49 @@ function agregarAmigo() {
     } else {
        amigos.push(String(nombreAmigo).toLocaleUpperCase())   
        inputNombreAmigo.value = ''
-        actualizarLista()
+        actualizarLista('listaAmigos',amigos)
         if(amigos.length > 2) {
             botonSortear.removeAttribute('disabled')
         }
     }
 }
 
-function actualizarLista() {
-    let listaAmigos = document.querySelector('#listaAmigos')
-    listaAmigos.innerHTML = ''
-    lista = ''
+function actualizarLista(idLista, listaAmigos) {
+    let htmlAmigos = document.querySelector(`#${idLista}`)
+    htmlAmigos.innerHTML = ''
+    let lista = ''
     
-    for (let i = 0; i < amigos.length; i++) {
-        lista += `<li>${amigos[i]}`;
+    for (let i = 0; i < listaAmigos.length; i++) {
+        lista += `<li>${listaAmigos[i]}`;
     }
     
-    listaAmigos.innerHTML = lista
+    htmlAmigos.innerHTML = lista
     return
 }
 
 function sortearAmigo(nombre) {
     resultado = document.querySelector('#resultado')
+
     if(amigos.length <= 2) {
         alert('Lista solo tiene 2 integrantes. Agregue mas personas, para el sorteo.')
-        return
+        return false
     }
     
-    //resultado.innerHTML = ''
     botonAgregar.setAttribute('disabled', 'disabled')
     botonAgregar.setAttribute('class', 'button-add')
     let numeroSorteado = Math.floor(Math.random()*amigos.length)+1
     resultado.innerHTML += `El nombre del amigo secreto es ${amigos[numeroSorteado]}<br/>`
-    eliminarAmigo(numeroSorteado)
-    return
-}
-
-function eliminarAmigo(indice) {
-    amigos.splice(indice, 1); // Elimina 1 elemento en la posición 'indice'
-    actualizarLista(); // Actualiza la lista en el HTML
-    if (amigos.length < 3) {
+    amigosSorteados.push(numeroSorteado)
+    actualizarLista('listaAmigos',amigos)
+    
+    if ((amigos.length - amigosSorteados) < 2) {
         document.querySelector('#sortearAmigo').setAttribute('disabled', 'disabled');
+        amigos.some(amigo => amigosSorteados.includes(amigo.toUpperCase()))
+        resultado.innerHTML = `<strong>El nombre del amigo secreto sin sortear es ${amigos.filter((_, index) => !amigosSorteados.includes(index))}</strong><br/>`
+        + resultado.innerHTML
     }
 }
+
 function resetearJuego() {
     botonAgregar.removeAttribute('disabled')
     botonAgregar.setAttribute('class', 'button-add')
