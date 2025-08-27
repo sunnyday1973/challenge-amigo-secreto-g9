@@ -30,13 +30,13 @@ function agregarAmigo() {
     return
 }
 
-function actualizarLista(idLista, listaAmigos) {
+function actualizarLista(idLista, listaAmigos, sorteado=false) {
     let htmlAmigos = document.querySelector(`#${idLista}`)
     htmlAmigos.innerHTML = ''
     let lista = ''
     
     for (let i = 0; i < listaAmigos.length; i++) {
-        lista += `<li>${listaAmigos[i]}`;
+        lista += `<li>${sorteado?'*':''}${listaAmigos[i]}`;
     }
     
     htmlAmigos.innerHTML = lista
@@ -46,7 +46,7 @@ function actualizarLista(idLista, listaAmigos) {
 function sortearAmigo() {
     resultado = document.querySelector('#resultado')
 
-    if(amigos.length == 0) {
+    if(!amigos.length) {
         alert('Debe ingresar a lo menos 2 integrantes, para empezar el sorteo.')
         return false
     }
@@ -59,8 +59,9 @@ function sortearAmigo() {
     botonAgregar.setAttribute('disabled', 'disabled')
     botonAgregar.setAttribute('class', 'button-add')
     let numeroSorteado = Math.floor(Math.random()*amigos.length)
-    resultado.innerHTML += `El nombre del amigo secreto es ${amigos[numeroSorteado]}<br/>`
+    resultado.innerHTML = `El nombre del amigo secreto es ${amigos[numeroSorteado]}<br/>`
     amigosSorteados.push(numeroSorteado)
+    actualizarLista('listaAmigos',amigos,true)
     
     if ((amigos.length - amigosSorteados.length) < 2) {
         console.log('quedo 1')
