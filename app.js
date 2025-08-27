@@ -61,8 +61,7 @@ function sortearAmigo() {
     if ((amigos.length - amigosSorteados.length) < 2) {
         console.log('quedo 1')
         document.querySelector('#sortearAmigo').setAttribute('disabled', 'disabled');
-        resultado.innerHTML = `<strong>El nombre del amigo secreto sin sortear es ${amigos.filter((_, index) => !amigosSorteados.includes(index))}</strong><br/>`
-                                + resultado.innerHTML
+        alert(`El último amigo secreto para sortear es ${amigos.filter((_, index) => !amigosSorteados.includes(index))}.`)
     }
 }
 
