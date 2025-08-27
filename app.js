@@ -30,13 +30,15 @@ function agregarAmigo() {
     return
 }
 
-function actualizarLista(idLista, listaAmigos, sorteado=false) {
+function actualizarLista(idLista, amigos, sorteado=false) {
     let htmlAmigos = document.querySelector(`#${idLista}`)
     htmlAmigos.innerHTML = ''
     let lista = ''
+    let marcado = ''
     
-    for (let i = 0; i < listaAmigos.length; i++) {
-        lista += `<li>${sorteado?'*':''}${listaAmigos[i]}`;
+    for (let i = 0; i < amigos.length; i++) {
+        marcado = (sorteado && amigosSorteados.includes(i)) ? '*':''
+        lista += `<li>${marcado}${amigos[i]}</li>`;
     }
     
     htmlAmigos.innerHTML = lista
