@@ -29,6 +29,7 @@ function agregarAmigo() {
         } else {
             amigos.push(nombreAmigo)   
             inputNombreAmigo.value = ''
+            inputNombreAmigo.focus()
             actualizarLista('listaAmigos',amigos, sorteoInicio)
             if(amigos.length >= 2) {
                 botonSortear.setAttribute('class', 'button-draw')                
@@ -73,11 +74,15 @@ function sortearAmigo() {
     resultado.innerHTML = `El nombre del amigo secreto es ${amigos[numeroSorteado]}<br/>`
     amigosSorteados.push(numeroSorteado)
     actualizarLista('listaAmigos',amigos,sorteoInicio)
+    
 
     if(amigos.length == amigosSorteados.length) {
-        alert('Se han sorteado todos los amigos. Reinicia el juego, si desea hacer otro sorteo.')
-        botonSortear.setAttribute('class', 'button-draw-disabled')
-        sorteoFinalizo = true
+        setTimeout(() => {
+            alert('Se han sorteado todos los amigos. Reinicia el juego, si desea hacer otro sorteo.')
+            botonSortear.setAttribute('class', 'button-draw-disabled')
+            sorteoFinalizo = true
+        }, 2000); // 2000 milisegundos = 2 segundos
+
         return false
     }
 
