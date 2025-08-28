@@ -68,7 +68,7 @@ function sortearAmigo() {
     if ((amigos.length - amigosSorteados.length) < 2) {
         console.log('quedo 1')
         botonSortear.setAttribute('disabled', 'disabled');
-        botonSortear.setAttribute('style', 'color:var(--color-tertiario)')
+        botonSortear.setAttribute('style', 'background-color:var(--color-tertiario)')
     }
 }
 
@@ -77,6 +77,7 @@ function resetearJuego() {
     botonAgregar.setAttribute('class', 'button-add')
     botonSortear.removeAttribute('disabled')
     botonSortear.setAttribute('class', 'button-draw')
+    botonSortear.setAttribute('style', 'background-color:var(--color-tertiary)')
     document.querySelector('#listaAmigos').innerHTML = ''
     document.querySelector('#resultado').innerHTML = ''
 
