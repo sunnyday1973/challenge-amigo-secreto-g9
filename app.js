@@ -37,7 +37,7 @@ function actualizarLista(idLista, amigos, sorteado=false) {
     let marcado = ''
     
     for (let i = 0; i < amigos.length; i++) {
-        marcado = (sorteado && amigosSorteados.includes(i)) ? '*':''
+        marcado = (sorteado && amigosSorteados.includes(i)) ? '<img src="assets/check.png" alt="Ícono para marcardo">':''
         lista += `<li>${marcado}${amigos[i]}</li>`;
     }
     
@@ -67,8 +67,8 @@ function sortearAmigo() {
     
     if ((amigos.length - amigosSorteados.length) < 2) {
         console.log('quedo 1')
-        document.querySelector('#sortearAmigo').setAttribute('disabled', 'disabled');
-        alert(`El último amigo secreto para sortear es ${amigos.filter((_, index) => !amigosSorteados.includes(index))}.`)
+        botonSortear.setAttribute('disabled', 'disabled');
+        botonSortear.setAttribute('style', 'color:var(--color-tertiario)')
     }
 }
 
