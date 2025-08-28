@@ -119,13 +119,13 @@ button {
 }
 
 .button-add {
-    background-color: var(color-button);
+    background-color: var(--color-button);
     color: var(--color-text);
     border-radius: 0 25px 25px 0;
 }
 
 .button-add:hover {
-    background-color: var(color-button-hover);
+    background-color: var(--color-button-hover);
 }
 
 .button-add-disabled {
