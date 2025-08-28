@@ -119,15 +119,24 @@ button {
 }
 
 .button-add {
-    background-color: var(--color-tertiary);
+    background-color: var(color-button);
     color: var(--color-text);
     border-radius: 0 25px 25px 0;
 }
 
 .button-add:hover {
-    background-color: #a1a1a1;
+    background-color: var(color-button-hover);
 }
 
+.button-add-disabled {
+    background-color: var(--color-tertiary);
+    color: var(--color-text);
+    border-radius: 0 25px 25px 0;
+}
+
+.button-add-disabled:hover {
+    background-color: #a1a1a1;
+}
 /* Listas */
 ul {
     list-style-type: none;
@@ -162,4 +171,18 @@ ul {
 
 .button-draw:hover {
     background-color: var(--color-button-hover);
+}
+
+.button-draw-disabled {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 40px;
+    color: var(--color-white);
+    background-color: var(--color-tertiary);
+    font-size: 16px;
+}
+
+.button-draw-disabled:hover {
+    background-color: #a1a1a1;
 }

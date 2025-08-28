@@ -24,6 +24,7 @@ function agregarAmigo() {
             actualizarLista('listaAmigos',amigos)
             if(amigos.length > 2) {
                 botonSortear.removeAttribute('disabled')
+                botonSortear.setAttribute('class', '.button-draw')                
             }
         }
     }
@@ -59,7 +60,7 @@ function sortearAmigo() {
     }
     
     botonAgregar.setAttribute('disabled', 'disabled')
-    botonAgregar.setAttribute('class', 'button-add')
+    botonAgregar.setAttribute('class', 'button-add-disabled')
     let numeroSorteado = Math.floor(Math.random()*amigos.length)
     resultado.innerHTML = `El nombre del amigo secreto es ${amigos[numeroSorteado]}<br/>`
     amigosSorteados.push(numeroSorteado)
@@ -68,16 +69,15 @@ function sortearAmigo() {
     if ((amigos.length - amigosSorteados.length) < 2) {
         console.log('quedo 1')
         botonSortear.setAttribute('disabled', 'disabled');
-        botonSortear.setAttribute('style', 'background-color:var(--color-tertiario)')
+        botonSortear.setAttribute('class', '.button-draw-disabled')
     }
 }
 
 function resetearJuego() {
     botonAgregar.removeAttribute('disabled')
     botonAgregar.setAttribute('class', 'button-add')
-    botonSortear.removeAttribute('disabled')
-    botonSortear.setAttribute('class', 'button-draw')
-    botonSortear.setAttribute('style', 'background-color:var(--color-tertiary)')
+    botonSortear.setAttribute('disabled', 'disabled')
+    botonSortear.setAttribute('class', 'button-draw-disabled')
     document.querySelector('#listaAmigos').innerHTML = ''
     document.querySelector('#resultado').innerHTML = ''
 
