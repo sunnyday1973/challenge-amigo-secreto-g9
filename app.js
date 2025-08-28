@@ -22,9 +22,9 @@ function agregarAmigo() {
             amigos.push(nombreAmigo)   
             inputNombreAmigo.value = ''
             actualizarLista('listaAmigos',amigos)
-            if(amigos.length > 2) {
+            if(amigos.length >= 2) {
                 botonSortear.removeAttribute('disabled')
-                botonSortear.setAttribute('class', '.button-draw')                
+                botonSortear.setAttribute('class', 'button-draw')                
             }
         }
     }
@@ -69,7 +69,7 @@ function sortearAmigo() {
     if ((amigos.length - amigosSorteados.length) < 2) {
         console.log('quedo 1')
         botonSortear.setAttribute('disabled', 'disabled');
-        botonSortear.setAttribute('class', '.button-draw-disabled')
+        botonSortear.setAttribute('class', 'button-draw-disabled')
     }
 }
 
