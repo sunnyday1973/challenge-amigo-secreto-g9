@@ -54,7 +54,7 @@ body {
 
 /* Títulos */
 .main-title {
-    font-size: 48px;
+    font-size: 3rem; /*48px;*/
     font-family: "Merriweather", serif;
     font-weight: 900;
     font-style: italic;
@@ -63,7 +63,7 @@ body {
 
 .section-title {
     font-family: "Inter", serif;
-    font-size: 36px;
+    font-size: 2.25rem; /*36px;*/
     font-weight: 700;
     color: var(--color-primary);
     margin: 10px 0;
@@ -84,11 +84,11 @@ body {
     padding: 10px;
     border: 2px solid #000;
     border-radius: 25px 0 0 25px;
-    font-size: 16px;
+    font-size: 1rem; /*16px;*/
 }
 
 .button-container {
-    width: 300px;
+    width: 50%; /*300px;*/
     justify-content: center;
     display: flex;
     align-items: center;
@@ -99,7 +99,7 @@ body {
 .input-title {
     flex: 1;
     padding: 10px 15px;
-    font-size: 16px;
+    font-size: 1rem; /*16px;*/
     border: 2px solid #333;
     border-right: none;
     border-radius: 25px 0 0 25px;
@@ -111,7 +111,7 @@ body {
 button {
     padding: 15px 30px;
     font-family: "Inter", sans-serif;
-    font-size: 16px;
+    font-size: 1rem; /*16px;*/
     border: 2px solid #000;
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -142,14 +142,14 @@ ul {
     list-style-type: none;
     color: var(--color-text);
     font-family: "Inter", sans-serif;
-    font-size: 18px;
+    font-size: 1.125rem; /*18px;*/
     margin: 20px 0;
 }
 
 .result-list {
     margin-top: 15px;
     color: #05DF05;
-    font-size: 22px;
+  font-size: 1.375rem; /*22px;*/
     font-weight: bold;
     text-align: center;
 }
@@ -162,10 +162,10 @@ ul {
     padding: 10px 40px;
     color: var(--color-white);
     background-color: var(--color-button);
-    font-size: 16px;
+    font-size: 1rem /*16px;*/
 }
 
-.button-draw img {
+.button-draw img, .button-draw-disabled img {
     margin-right: 40px;
 }
 
@@ -180,9 +180,42 @@ ul {
     padding: 10px 40px;
     color: var(--color-white);
     background-color: var(--color-tertiary);
-    font-size: 16px;
+    font-size: 1rem; /*16px;*/
 }
 
 .button-draw-disabled:hover {
     background-color: #a1a1a1;
+}
+
+.presentacion__imagen {
+    width: 100%
+}
+
+@media (max-width: 768px) {
+    .presentacion__imagen {
+        width: 70%;
+        display: flex;
+        flex-direction: column-reverse;
+        margin: 5% 0%;
+    }
+
+    .header-banner {
+        padding: 10% 10% 0;
+        flex-direction: column;
+        width: auto;
+        align-items: center;
+    }
+    .button-container{
+        width: auto;
+        flex-direction: column;
+    }
+
+    .button-draw, .button-draw-disabled {
+         gap: 5%;
+         text-align: left;
+    }
+
+    .button-draw img, .button-draw-disabled img {
+        align-items: right;
+    }
 }

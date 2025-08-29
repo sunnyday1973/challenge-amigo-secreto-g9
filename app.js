@@ -56,6 +56,11 @@ function actualizarLista(idLista, amigos, sorteoInicio=false) {
 }
 
 function sortearAmigo() {
+    if(sorteoFinalizo) {
+        alert(`El sorteo ya ha finalizado. Renicia el juego.`)
+        return false
+    }
+    
     resultado = document.querySelector('#resultado')
 
     if(!amigos.length) {
@@ -112,7 +117,7 @@ function generaNumero() {
 
     if(amigosSorteados.includes(numero)) {
         console.log('recursia')
-        generaNumero()
+        return generaNumero()
     }
     
     return numero
