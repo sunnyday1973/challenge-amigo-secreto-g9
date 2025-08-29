@@ -47,7 +47,7 @@ function actualizarLista(idLista, amigos, sorteoInicio=false) {
     let marcado = ''
 
     for (let i = 0; i < amigos.length; i++) {
-        marcado = (sorteoInicio && amigosSorteados.includes(i)) ? '<img src="assets/check.png" alt="Ícono para marcardo">':''
+        marcado = (sorteoInicio && amigosSorteados.includes(i)) ? '<img src="assets/check.png" alt="Ícono para marcardo"/>&nbsp;':''
         lista += `<li>${marcado}${amigos[i]}</li>`;
     }
     
@@ -69,22 +69,25 @@ function sortearAmigo() {
     }
     
     sorteoInicio = true
+    let numeroSorteado = generaNumero()
+    console.log(`numeroSorteado: ${numeroSorteado}, amigos[${numeroSorteado}]`)
+
+    if(numeroSorteado != null) {
+        amigosSorteados.push(numeroSorteado)
+    }
+
     botonAgregar.setAttribute('class', 'button-add-disabled')
-    let numeroSorteado = Math.floor(Math.random()*amigos.length)
     resultado.innerHTML = `El nombre del amigo secreto es ${amigos[numeroSorteado]}<br/>`
-    amigosSorteados.push(numeroSorteado)
     actualizarLista('listaAmigos',amigos,sorteoInicio)
-    
 
     if(amigos.length == amigosSorteados.length) {
+        botonSortear.setAttribute('class', 'button-draw-disabled')
+        sorteoFinalizo = true
         setTimeout(() => {
             alert('Se han sorteado todos los amigos. Reinicia el juego, si desea hacer otro sorteo.')
-            botonSortear.setAttribute('class', 'button-draw-disabled')
-            sorteoFinalizo = true
         }, 2000); // 2000 milisegundos = 2 segundos
-
         return false
-    }
+   }
 
     return true
 }
@@ -101,4 +104,16 @@ function resetearJuego() {
     amigosSorteados = []
 
     return true
+}
+
+function generaNumero() {
+    let numero = Math.floor(Math.random()*amigos.length)
+    console.log(`sorteado:${numero}`)
+
+    if(amigosSorteados.includes(numero)) {
+        console.log('recursia')
+        generaNumero()
+    }
+    
+    return numero
 }
