@@ -187,10 +187,6 @@ ul {
     background-color: #a1a1a1;
 }
 
-.presentacion__imagen {
-    width: 100%
-}
-
 @media (max-width: 768px) {
     .presentacion__imagen {
         width: 70%;
