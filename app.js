@@ -7,6 +7,9 @@ const inputNombreAmigo = document.querySelector('#amigo')
 const botonSortear = document.querySelector('#sortearAmigo')
 
 
+
+
+
 function agregarAmigo() {
     let nombreAmigo = inputNombreAmigo.value.trim()
 
