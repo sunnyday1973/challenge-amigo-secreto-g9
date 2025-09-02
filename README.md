@@ -25,7 +25,7 @@ Repositório base proporcionado para el proyecto, con el código HTML y CSS se p
 
 2. **En un entorno virtual de GitHub Codespaces**:
    - En el repositorio, haz clic en el botón verde **Code** → pestaña **Codespaces** → selecciona **Create codespace on main** (o la rama deseada).  
-     ![Codespace](./img/fig3.png)
+     ![Codespace](./img/codeSpace.png)
    - Espera a que el **Codespace** termine de configurarse.
       ![Abriendo Codespace](./img/cargaRepositorio.png)
    - Una vez que la instalación de **Live Server** haya finalizado, haz clic en **Go Live** para desplegar la página.
