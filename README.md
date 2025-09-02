@@ -13,7 +13,7 @@ Funcionalidades
 - **Visualiza la lista**: Los nombres ingresados aparecerán en una lista debajo del campo de entrada.
 - **Sorteo aleatorio**: Al hacer clic en el botón "Sortear Amigo", se seleccionará aleatoriamente un nombre de la lista y se mostrará en la página.
 
-Base
+Proyecto Base
 ---
 Repositório base proporcionado para el proyecto, con el código HTML y CSS se puede ser descargado desde [aquí](https://github.com/Oracle-Next-Education/challenge-amigo-secreto_esp).
 
