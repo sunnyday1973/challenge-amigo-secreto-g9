@@ -17,7 +17,17 @@ Base
 ---
 Repositório base proporcionado para el proyecto, con el código HTML y CSS se puede ser descargado desde [aquí](https://github.com/Oracle-Next-Education/challenge-amigo-secreto_esp).
 
-## ¿Como puedes ejecutar un sorteo?
-- Ejecútalo localmente en Visual Studio Code instalando la extensión **"Live Server"**
-- Ejecútalo en el entorno virtual de GitHub. En el repositorio, haz clic en el botón verde Code → pestaña Codespaces → selecciona Create codespace on main (o la rama que quieras). ![Code space](./img/fig3.png)
+## Cómo ejecutar un sorteo
+
+1. **Localmente con Visual Studio Code**:
+   - Instala la extensión **Live Server** en Visual Studio Code.
+   - Abre el proyecto y haz clic en **Go Live** para iniciar el servidor local. Esto te permitirá visualizar la página y realizar cambios en el código sin necesidad de recargarla manualmente.
+
+2. **En un entorno virtual de GitHub Codespaces**:
+   - En el repositorio, haz clic en el botón verde **Code** → pestaña **Codespaces** → selecciona **Create codespace on main** (o la rama deseada).  
+     ![Codespace](./img/fig3.png)
+   - Espera a que el **Codespace** termine de configurarse.
+      ![Abriendo Codespace](./img/cargaRepositorio.png)
+   - Una vez que la instalación de **Live Server** haya finalizado, haz clic en **Go Live** para desplegar la página.
+      ![Go Live](./img/activarLiveServer.png)
 
